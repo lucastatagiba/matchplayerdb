@@ -1,46 +1,18 @@
 {
   "users": [
     {
-      "email": "testuser@email.com",
-      "password": "$2a$10$iHSQyewgRf/t50FXbEFgLOMjMXQmCyFnGsARdSWFNp.5Hq4RTZYQK",
-      "name": "Test User",
-      "birthDate": "03/17/1995",
-      "age": "27",
-      "gender": "Male",
+      "email": "teste24@teste.com",
+      "password": "$2a$10$3nOPh69fSYWXPNaD9k6k/.IOhKcugb28MaNx5mjuB3Ic2WWsqt/Py",
+      "name": "teste",
+      "nickname": "teste1",
+      "profileIMG": "",
+      "posts": [],
+      "friendList": [],
+      "gameList": [],
+      "plataformList": [],
+      "timeAvailability": [],
       "id": 1
-    },
-    {
-      "email": "teste@teste.com",
-      "password": "$2a$10$7R/g0oS3cVSNVVDr4Ogwq.U.ttyCgVPAVIiEzvzjOr8phVh1HG43u",
-      "name": "teste",
-      "nickname": "teste1",
-      "profileIMG": "urlImage",
-      "posts": [],
-      "friendList": [],
-      "gameList": [],
-      "plataformList": [],
-      "timeAvailability": [],
-      "id": 2
-    },
-    {
-      "email": "teste2@teste.com",
-      "password": "$2a$10$D3DXElhrZJdWq.bLSlAXq.I6DUiUj3kJ/hiz88Kf5kipH2Hkefb4W",
-      "name": "teste",
-      "nickname": "teste1",
-      "profileIMG": "urlImage",
-      "posts": [],
-      "friendList": [],
-      "gameList": [],
-      "plataformList": [],
-      "timeAvailability": [],
-      "id": 3
     }
   ],
-  "posts": [
-    {
-      "foto": "foto4",
-      "userId": 2,
-      "id": 1
-    }
-  ]
+  "posts": []
 }

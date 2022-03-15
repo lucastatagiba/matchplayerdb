@@ -1,20 +1,24 @@
 const errors = require("../errors/errors");
 
 class CustomMiddlewares {
-  static signup(req, res, next) {
-    if ("name" in req.body && "birthDate" in req.body) {
+  static register(req, res, next) {
+    if ("name" in req.body && "email" in req.body) {
+      req.body.profileIMG = "";
+      req.body.posts = [];
+      req.body.friendList = [];
+      req.body.gameList = [];
+      req.body.plataformList = [];
+      req.body.timeAvailability = [];
       next();
     } else {
       res.status(400).jsonp(errors.signup);
     }
   }
 
-  static todos(req, res, next) {
+  static posts(req, res, next) {
     if (req.method === "POST") {
-      if ("title" in req.body && "description" in req.body) {
+      if ("photo" in req.body && "description" in req.body) {
         req.body.createdAt = new Date().toUTCString();
-
-        req.body.completed = false;
 
         next();
       } else {
