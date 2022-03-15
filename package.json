@@ -1,0 +1,20 @@
+{
+  "name": "todos-list",
+  "version": "1.0.0",
+  "description": "Fake API wich permits authentication and register o todos in a list.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "devStart": "nodemon ./src/server.js"
+  },
+  "author": "Leonrado Moraes",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "json-server": "^0.16.3",
+    "json-server-auth": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
