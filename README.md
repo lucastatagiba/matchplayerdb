@@ -6,7 +6,7 @@ This repository is configured with JSON Server and JSON Server Auth to setup a f
 
 The base URL described below will be used as a prefix for all endpoints of the API.
 
-Base URL: https://shrouded-chamber-97255.herokuapp.com
+Base URL: https://matchplayersdb.herokuapp.com/
 
 ### User Signup
 
@@ -18,15 +18,20 @@ The method POST in the /signup endpoint will register an user on the API data ba
 
 ```JSON
 //Method: POST
-//Endpoint: /singup
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/singup
+//Endpoint: /register
+//URI e.g.: https://matchplayersdb.herokuapp.com/register
 //Body(JSON):
     {
-        "name": "Test User", //required
-        "age": "27", //optional
-        "gender": "Male", //optional
-        "email": "testuser@email.com", //required
-        "password": "197328@#TesteUser" //required
+      "email": "teste@teste.com",
+      "password": "senhaforte",
+      "name": "teste",
+      "nickname": "teste1",
+      "profileIMG": "urlImage",
+      "posts": [],
+      "friendList": [],
+      "gameList": [],
+      "plataformList": [],
+      "timeAvailability": [],
     }
 ```
 
@@ -41,7 +46,15 @@ The method POST in the /signup endpoint will register an user on the API data ba
         "accessToken": "xxx.xxx.xxx",
         "user": {
                 "id": 1,
-                "email": "testuser@email.com"
+                "email": "teste@teste.com",
+                "name": "teste",
+                "nickname": "teste1",
+                "profileIMG": "urlImage",
+                "posts": [],
+                "friendList": [],
+                "gameList": [],
+                "plataformList": [],
+                "timeAvailability": [],
             }
     }
 ```
@@ -52,7 +65,7 @@ The method POST in the /signup endpoint will register an user on the API data ba
 //Status: 400 Bad Request
 //Body(JSON):
     {
-	    "message": "Requisiton Error: Either of name or birthDate required propertys are missing at requisition body"
+	    "message": "Email and password are required"
     }
 ```
 
@@ -60,14 +73,14 @@ The method POST in the /signup endpoint will register an user on the API data ba
 
 **`POST /signin`**
 
-The method POST in the /signin endpoint will login an user on the API, it's response will contain a JWT token wich should be used to interact with the authenticated routes.
+The method POST in the /login endpoint will login an user on the API, it's response will contain a JWT token wich should be used to interact with the authenticated routes.
 
 **Requisition Format:**
 
 ```JSON
 //Method: POST
-//Endpoint: /signin
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/signin
+//Endpoint: /login
+//URI e.g.: https://matchplayersdb.herokuapp.com/login
 //Body(JSON):
     {
         "email": "testuser@email.com", //required
@@ -85,11 +98,16 @@ The method POST in the /signin endpoint will login an user on the API, it's resp
     {
     "accessToken": "xxx.xxx.xxx",
     "user": {
-        "id": 1,
-        "name": "Test User",
-        "age": "27", //optional
-        "gender": "Male", //optional
-        "email": "testuser@email.com",
+        "email": "teste@teste.com",
+		"name": "teste",
+		"nickname": "teste1",
+		"profileIMG": "urlImage",
+		"posts": [],
+		"friendList": [],
+		"gameList": [],
+		"plataformList": [],
+		"timeAvailability": [],
+		"id": 1
     }
     }
 ```
@@ -105,23 +123,24 @@ The method POST in the /signin endpoint will login an user on the API, it's resp
 
 ### Todos Registering
 
-**`POST /todos`**
+**`POST /posts`**
 
-The method POST in the /todos endpoint will register a new todo, a user token is required to complete the operation.
+The method POST in the /posts endpoint will register a new todo, a user token is required to complete the operation.
 
 **Requisition Format:**
 
 ```JSON
 //Method: POST
-//Endpoint: /todos
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/todos
+//Endpoint: /posts
+//URI e.g.: https://matchplayersdb.herokuapp.com/posts
 //Authentication Method: Bearer Token
 //Body(JSON):
     {
-        "title": "Estudar React", //required
-        "description": "Preciso estudar react para fazer o capstone semana que vem.", //required
-        "userId": 1 //required
-    }
+	"foto": "fotoURL",
+	"description": "teste1",
+	"comments": [],
+	"userId": 1
+}
 ```
 
 **Response Format:**
@@ -132,13 +151,12 @@ The method POST in the /todos endpoint will register a new todo, a user token is
 //Status: 201 Created
 //Body(JSON):
     {
-        "title": "Estudar Typescript",
-        "description": "Preciso estudar o conteúdo extra de Typescript",
-        "userId": 1,
-        "createdAt": "Thu, 10 Mar 2022 16:50:45 GMT",
-        "completed": false,
-        "id": 2
-    }
+	"foto": "foto",
+	"description": "teste1",
+	"comments": [],
+	"userId": 1,
+	"id": 1
+}
 ```
 
 **_On Fail_**
@@ -153,17 +171,17 @@ The method POST in the /todos endpoint will register a new todo, a user token is
 
 ### Todos Reading
 
-**`GET /todos`**
+**`GET /posts`**
 
-The method GET in the /todos endpoint will bring a response with all todos (completed or not), a user token is required to complete the operation.
-It's possible to use path params (/todos/:id) and query params (/todos?property=value) to filter the results.
+The method GET in the /posts endpoint will bring a response with all todos (completed or not), a user token is required to complete the operation.
+It's possible to use path params (/posts/:id) and query params (/ṕosts?property=value) to filter the results.
 
 **Requisition Format:**
 
 ```JSON
 //Method: GET
-//Endpoint: /todos
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/todos
+//Endpoint: /posts
+//URI e.g.: https://matchplayersdb.herokuapp.com/posts
 //Authentication Method: Bearer Token
 //Body: No body
 ```
@@ -176,23 +194,12 @@ It's possible to use path params (/todos/:id) and query params (/todos?property=
 //Status: 200 OK
 //Body(JSON):
     [
-        {
-            "title": "Estudar React",
-            "description": "Preciso estudar react para fazer o capstone semana que vem.",
-            "userId": 1,
-            "createdAt": "Thu, 10 Mar 2022 16:27:58 GMT",
-            "completed": false,
-            "id": 1
-        },
-        {
-            "title": "Estudar Typescript",
-            "description": "Preciso estudar o conteúdo extra de Typescript",
-            "userId": 1,
-            "createdAt": "Thu, 10 Mar 2022 16:50:45 GMT",
-            "completed": false,
-            "id": 2
-        }
-    ]
+	{
+		"foto": "foto4",
+		"userId": 2,
+		"id": 1
+	}
+]
 ```
 
 **_On Fail_**
@@ -207,23 +214,24 @@ It's possible to use path params (/todos/:id) and query params (/todos?property=
 
 ### Todos Updating
 
-**`PATCH /todos/:id`**
+**`PUT /posts/:id`**
 
-The method PATCH in the /todos/:id endpoint patch one or more propertys of the todo within the especified path param, a user token is required to complete the operation.
+The method PUT in the /posts/:id endpoint edit one or more propertys of the post within the especified path param, a user token is required to complete the operation.
 
 **_OBS: IT'S NOT POSSIBLE TO UPDATE ID, USERID OR CREATEDAT PROPERTYS._**
 
 **Requisition Format:**
 
 ```JSON
-//Method: PATCH
-//Endpoint: /todos/:id
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/todos/1
+//Method: put
+//Endpoint: /posts/:id
+//URI e.g.: https://matchplayersdb.herokuapp.com/posts/1
 //Authentication Method: Bearer Token
 //Body:
     {
-        "description": "Preciso estudar React e Context API para o capstone que começará semana que vem."
-    }
+	"foto": "foto4",
+	"userId":1
+}
 ```
 
 **Response Format:**
@@ -234,11 +242,8 @@ The method PATCH in the /todos/:id endpoint patch one or more propertys of the t
 //Status: 200 OK
 //Body(JSON):
     {
-	"title": "Estudar React e ContextAPI",
-	"description": "Preciso estudar React e Context API para o capstone que começará semana que vem.",
-	"userId": 1,
-	"createdAt": "Thu, 10 Mar 2022 16:27:58 GMT",
-	"completed": false,
+	"foto": "foto4",
+	"userId": 2,
 	"id": 1
 }
 ```
@@ -260,16 +265,16 @@ The method PATCH in the /todos/:id endpoint patch one or more propertys of the t
 
 ### Todos Deleting
 
-**`DELETE /todos/:id`**
+**`DELETE /posts/:id`**
 
-The method DELETE in the /todos/:id endpoint deletes one of the todo within the especified path param, a user token is required to complete the operation.
+The method DELETE in the /posts/:id endpoint deletes one of the todo within the especified path param, a user token is required to complete the operation.
 
 **Requisition Format:**
 
 ```JSON
 //Method: DELETE
-//Endpoint: /todos/:id
-//URI e.g.: https://shrouded-chamber-97255.herokuapp.com/todos/1
+//Endpoint: /posts/:id
+//URI e.g.: https://matchplayersdb.herokuapp.com/posts/1
 //Authentication Method: Bearer Token
 //Body: No Body
 ```
