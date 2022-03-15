@@ -12,7 +12,7 @@ Base URL: https://matchplayersdb.herokuapp.com/
 
 **`POST /users`**
 
-The method POST in the /register endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
+The method POST in the /users endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
 
 **Requisition Format:**
 
