@@ -8,11 +8,11 @@ The base URL described below will be used as a prefix for all endpoints of the A
 
 Base URL: https://matchplayersdb.herokuapp.com/
 
-### User Signup
+### User Register
 
-**`POST /signup`**
+**`POST /register`**
 
-The method POST in the /signup endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
+The method POST in the /register endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
 
 **Requisition Format:**
 
@@ -69,9 +69,9 @@ The method POST in the /signup endpoint will register an user on the API data ba
     }
 ```
 
-### User Signin
+### User Login
 
-**`POST /signin`**
+**`POST /Login`**
 
 The method POST in the /login endpoint will login an user on the API, it's response will contain a JWT token wich should be used to interact with the authenticated routes.
 
