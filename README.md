@@ -1,4 +1,4 @@
-# Todos List
+# MATCH PLAYERS DB
 
 This repository is configured with JSON Server and JSON Server Auth to setup a fake API. It permits users signup, signin and, after authentication, register, patch and delete of todos in a todo list.
 
