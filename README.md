@@ -1,4 +1,4 @@
-# Todos List
+# MATCH PLAYERS DB
 
 This repository is configured with JSON Server and JSON Server Auth to setup a fake API. It permits users signup, signin and, after authentication, register, patch and delete of todos in a todo list.
 
@@ -10,28 +10,22 @@ Base URL: https://matchplayersdb.herokuapp.com/
 
 ### User Register
 
-**`POST /register`**
+**`POST /users`**
 
-The method POST in the /register endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
+The method POST in the /users endpoint will register an user on the API data base, permiting later signin and interactions with the API features.
 
 **Requisition Format:**
 
 ```JSON
 //Method: POST
-//Endpoint: /register
-//URI e.g.: https://matchplayersdb.herokuapp.com/register
+//Endpoint: /users
+//URI e.g.: https://matchplayersdb.herokuapp.com/users
 //Body(JSON):
     {
       "email": "teste@teste.com",
       "password": "senhaforte",
       "name": "teste",
-      "nickname": "teste1",
-      "profileIMG": "urlImage",
-      "posts": [],
-      "friendList": [],
-      "gameList": [],
-      "plataformList": [],
-      "timeAvailability": [],
+      "nickname": "teste1"      
     }
 ```
 
