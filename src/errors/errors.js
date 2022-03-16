@@ -1,9 +1,9 @@
 const errors = {
-  signup: {
+  register: {
     message:
       "Requisiton Error: Either of name or birthDate required propertys are missing at requisition body",
   },
-  todos: {
+  posts: {
     post: {
       message:
         "Requisiton Error: Either of title or description required propertys are missing at requisition body",

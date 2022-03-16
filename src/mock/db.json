@@ -12,6 +12,19 @@
       "plataformList": [],
       "timeAvailability": [],
       "id": 1
+    },
+    {
+      "email": "teste4@teste.com",
+      "password": "$2a$10$CczkMXQpgkD.LIvUUgytZ.2QibdTxpSuGavtkapYt6mi2gFdXveP.",
+      "name": "teste",
+      "nickname": "teste1",
+      "profileIMG": "",
+      "posts": [],
+      "friendList": [],
+      "gameList": [],
+      "plataformList": [],
+      "timeAvailability": [],
+      "id": 2
     }
   ],
   "posts": []
