@@ -44,6 +44,7 @@ The method POST in the /users endpoint will register an user on the API data bas
                 "name": "teste",
                 "nickname": "teste1",
                 "profileIMG": "urlImage",
+                "profileBackgroundIMG":"",
                 "posts": [],
                 "friendList": [],
                 "gameList": [],
