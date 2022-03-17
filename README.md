@@ -25,7 +25,7 @@ The method POST in the /users endpoint will register an user on the API data bas
       "email": "teste@teste.com",
       "password": "senhaforte",
       "name": "teste",
-      "nickname": "teste1"      
+      "nickname": "teste1"
     }
 ```
 
@@ -44,6 +44,7 @@ The method POST in the /users endpoint will register an user on the API data bas
                 "name": "teste",
                 "nickname": "teste1",
                 "profileIMG": "urlImage",
+                "profileBackgroundIMG":"",
                 "posts": [],
                 "friendList": [],
                 "gameList": [],
@@ -90,19 +91,20 @@ The method POST in the /login endpoint will login an user on the API, it's respo
 //Status: 200 OK
 //Body(JSON):
     {
-    "accessToken": "xxx.xxx.xxx",
-    "user": {
-        "email": "teste@teste.com",
-		"name": "teste",
-		"nickname": "teste1",
-		"profileIMG": "urlImage",
-		"posts": [],
-		"friendList": [],
-		"gameList": [],
-		"plataformList": [],
-		"timeAvailability": [],
-		"id": 1
-    }
+        "accessToken": "xxx.xxx.xxx",
+        "user": {
+            "email": "teste@teste.com",
+            "name": "teste",
+            "nickname": "teste1",
+            "profileIMG": "urlImage",
+            "profileBackgroundIMG":"",
+            "posts": [],
+            "friendList": [],
+            "gameList": [],
+            "plataformList": [],
+            "timeAvailability": [],
+            "id": 1
+        }
     }
 ```
 
@@ -115,11 +117,11 @@ The method POST in the /login endpoint will login an user on the API, it's respo
 
 ```
 
-### Todos Registering
+### Posts Registering
 
 **`POST /posts`**
 
-The method POST in the /posts endpoint will register a new todo, a user token is required to complete the operation.
+The method POST in the /posts endpoint will register a new post, a user token is required to complete the operation.
 
 **Requisition Format:**
 
@@ -130,11 +132,11 @@ The method POST in the /posts endpoint will register a new todo, a user token is
 //Authentication Method: Bearer Token
 //Body(JSON):
     {
-	"foto": "fotoURL",
-	"description": "teste1",
-	"comments": [],
-	"userId": 1
-}
+	    "photo": "fotoURL",
+	    "description": "teste1",
+	    "comments": [],
+	    "userId": 1
+    }
 ```
 
 **Response Format:**
@@ -145,12 +147,12 @@ The method POST in the /posts endpoint will register a new todo, a user token is
 //Status: 201 Created
 //Body(JSON):
     {
-	"foto": "foto",
-	"description": "teste1",
-	"comments": [],
-	"userId": 1,
-	"id": 1
-}
+        "photo": "foto",
+        "description": "teste1",
+        "comments": [],
+        "userId": 1,
+        "id": 1
+    }
 ```
 
 **_On Fail_**
@@ -163,11 +165,11 @@ The method POST in the /posts endpoint will register a new todo, a user token is
     }
 ```
 
-### Todos Reading
+### Posts Reading
 
 **`GET /posts`**
 
-The method GET in the /posts endpoint will bring a response with all todos (completed or not), a user token is required to complete the operation.
+The method GET in the /posts endpoint will bring a response with all posts (completed or not), a user token is required to complete the operation.
 It's possible to use path params (/posts/:id) and query params (/ṕosts?property=value) to filter the results.
 
 **Requisition Format:**
@@ -188,12 +190,12 @@ It's possible to use path params (/posts/:id) and query params (/ṕosts?propert
 //Status: 200 OK
 //Body(JSON):
     [
-	{
-		"foto": "foto4",
-		"userId": 2,
-		"id": 1
-	}
-]
+        {
+            "photog": "foto4",
+            "userId": 2,
+            "id": 1
+        }
+    ]
 ```
 
 **_On Fail_**
@@ -206,7 +208,7 @@ It's possible to use path params (/posts/:id) and query params (/ṕosts?propert
 
 ```
 
-### Todos Updating
+### Posts Updating
 
 **`PUT /posts/:id`**
 
@@ -223,9 +225,9 @@ The method PUT in the /posts/:id endpoint edit one or more propertys of the post
 //Authentication Method: Bearer Token
 //Body:
     {
-	"foto": "foto4",
-	"userId":1
-}
+        "photo": "foto4",
+        "userId":1
+    }
 ```
 
 **Response Format:**
@@ -236,10 +238,10 @@ The method PUT in the /posts/:id endpoint edit one or more propertys of the post
 //Status: 200 OK
 //Body(JSON):
     {
-	"foto": "foto4",
-	"userId": 2,
-	"id": 1
-}
+        "photo": "foto4",
+        "userId": 2,
+        "id": 1
+    }
 ```
 
 **_On Fail_**
@@ -257,11 +259,11 @@ The method PUT in the /posts/:id endpoint edit one or more propertys of the post
 
 ```
 
-### Todos Deleting
+### Posts Deleting
 
 **`DELETE /posts/:id`**
 
-The method DELETE in the /posts/:id endpoint deletes one of the todo within the especified path param, a user token is required to complete the operation.
+The method DELETE in the /posts/:id endpoint deletes one of the posts within the especified path param, a user token is required to complete the operation.
 
 **Requisition Format:**
 

@@ -5,6 +5,8 @@ class CustomMiddlewares {
     if ("name" in req.body && "email" in req.body) {
       req.body.profileIMG =
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+      req.body.profileBackgroundIMG =
+        "https://wallpapercave.com/wp/wp7373530.jpg";
       req.body.posts = [];
       req.body.friendList = [];
       req.body.gameList = [];
