@@ -20,7 +20,7 @@ class CustomMiddlewares {
 
   static posts(req, res, next) {
     if (req.method === "POST") {
-      if ("photo" in req.body && "description" in req.body) {
+      if ("postIMG" in req.body || "desc" in req.body) {
         req.body.createdAt = new Date().toUTCString();
 
         next();
